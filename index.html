@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Password generator app</title>
+  </head>
+  <body>
+    <main>
+      <section class="password-generator">
+        <h1>Password Generator</h1>
+
+        <div class="password-generator-container">
+          <div class="password-display">
+            <div class="password">PTx1f5DaFX</div>
+
+            <button class="btn copy-password">
+              <svg width="21" height="24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20.341 3.091 17.909.659A2.25 2.25 0 0 0 16.319 0H8.25A2.25 2.25 0 0 0 6 2.25V4.5H2.25A2.25 2.25 0 0 0 0 6.75v15A2.25 2.25 0 0 0 2.25 24h10.5A2.25 2.25 0 0 0 15 21.75V19.5h3.75A2.25 2.25 0 0 0 21 17.25V4.682a2.25 2.25 0 0 0-.659-1.591ZM12.469 21.75H2.53a.281.281 0 0 1-.281-.281V7.03a.281.281 0 0 1 .281-.281H6v10.5a2.25 2.25 0 0 0 2.25 2.25h4.5v1.969a.282.282 0 0 1-.281.281Zm6-4.5H8.53a.281.281 0 0 1-.281-.281V2.53a.281.281 0 0 1 .281-.281H13.5v4.125c0 .621.504 1.125 1.125 1.125h4.125v9.469a.282.282 0 0 1-.281.281Zm.281-12h-3v-3h.451c.075 0 .147.03.2.082L18.667 4.6a.283.283 0 0 1 .082.199v.451Z"
+                  fill="#A4FFAF"
+                />
+              </svg>
+            </button>
+
+            <span class="password-copied">Copied</span>
+          </div>
+
+          <form class="password-specs">
+            <div class="character-length">
+              <div class="char-length">
+                <label for="char-length-number"> Character Length</label>
+
+                <div class="char-length-number" id="char-length-number">0</div>
+              </div>
+
+              <input
+                class="char-length-slider"
+                type="range"
+                value="0"
+                min="0"
+                max="20"
+              />
+            </div>
+
+            <div class="pass-specs-container">
+              <div class="pass-specs include-uppercase">
+                <input
+                  type="checkbox"
+                  name="include-uppercase-letters"
+                  id="include-uppercase-letters"
+                />
+
+                <div class="icon-container">
+                  <img
+                    class="checkmark"
+                    src="assets/images/icon-check.svg"
+                    alt=""
+                  />
+                </div>
+
+                <label for="include-uppercase-letters"
+                  >Include Uppercase Letters</label
+                >
+              </div>
+
+              <div class="pass-specs include-lowercase">
+                <input
+                  type="checkbox"
+                  name="include-lowercase-letters"
+                  id="include-lowercase-letters"
+                />
+
+                <div class="icon-container">
+                  <img
+                    class="checkmark"
+                    src="assets/images/icon-check.svg"
+                    alt=""
+                  />
+                </div>
+
+                <label for="include-lowercase-letters"
+                  >Include Lowercase Letters</label
+                >
+              </div>
+
+              <div class="pass-specs include-numbers">
+                <input
+                  type="checkbox"
+                  name="include-numbers"
+                  id="include-nums"
+                />
+
+                <div class="icon-container">
+                  <img
+                    class="checkmark"
+                    src="assets/images/icon-check.svg"
+                    alt=""
+                  />
+                </div>
+
+                <label for="include-nums">Include Numbers</label>
+              </div>
+
+              <div class="pass-specs include-symbols">
+                <input
+                  type="checkbox"
+                  name="include-symbols"
+                  id="include-syms"
+                />
+
+                <div class="icon-container">
+                  <img
+                    class="checkmark"
+                    src="assets/images/icon-check.svg"
+                    alt=""
+                  />
+                </div>
+
+                <label for="include-syms">Include Symbols</label>
+              </div>
+            </div>
+
+            <div class="password-strength">
+              <div class="pass-strength">Strength</div>
+
+              <div class="pass-strength-details">
+                <div class="text">Medium</div>
+
+                <div class="bars">
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+                  <div class="bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn generate-password" type="submit">
+              <div class="text">Generate</div>
+
+              <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill="#24232C"
+                  d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
+                />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
