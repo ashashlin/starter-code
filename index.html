@@ -61,6 +61,8 @@
             <div class="pass-specs-container">
               <div class="pass-specs include-uppercase">
                 <input
+                  class="js-pass-checkbox"
+                  data-pass-specs="uppercase"
                   type="checkbox"
                   name="include-uppercase-letters"
                   id="include-uppercase-letters"
@@ -81,6 +83,8 @@
 
               <div class="pass-specs include-lowercase">
                 <input
+                  class="js-pass-checkbox"
+                  data-pass-specs="lowercase"
                   type="checkbox"
                   name="include-lowercase-letters"
                   id="include-lowercase-letters"
@@ -101,6 +105,8 @@
 
               <div class="pass-specs include-numbers">
                 <input
+                  class="js-pass-checkbox"
+                  data-pass-specs="numbers"
                   type="checkbox"
                   name="include-numbers"
                   id="include-nums"
@@ -119,6 +125,8 @@
 
               <div class="pass-specs include-symbols">
                 <input
+                  class="js-pass-checkbox"
+                  data-pass-specs="symbols"
                   type="checkbox"
                   name="include-symbols"
                   id="include-syms"
@@ -151,7 +159,10 @@
               </div>
             </div>
 
-            <button class="btn generate-password" type="submit">
+            <button
+              class="btn generate-password js-generate-password"
+              type="submit"
+            >
               <div class="text">Generate</div>
 
               <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
