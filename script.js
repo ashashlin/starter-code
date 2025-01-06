@@ -7,10 +7,10 @@ charLengthSlider.addEventListener("input", () => {
 });
 
 function passwordPlaceholderStyle() {
-  const password = document.querySelector(".js-password");
+  const passwordDisplay = document.querySelector(".js-password");
   const copyPassword = document.querySelector(".js-copy-password");
 
-  password.style.opacity = ".2";
+  passwordDisplay.style.opacity = ".2";
   copyPassword.style.pointerEvents = "none";
 }
 passwordPlaceholderStyle();
@@ -60,6 +60,14 @@ function generatePassword() {
           charSet += symbols;
         }
       });
+
+      const password = [];
+
+      for (let i = 0; i < charLength; i++) {
+        const randomIndex = Math.floor(Math.random() * charSet.length);
+
+        password.push(charSet[randomIndex]);
+      }
     }
   });
 }
