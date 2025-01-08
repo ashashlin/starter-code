@@ -210,12 +210,34 @@ function generatePassword() {
 
       passwordString = password.join("");
 
-      passwordDisplay.innerHTML = passwordString;
+      passwordDisplay.innerText = passwordString;
       passwordDisplay.style.opacity = "1";
       copyPassword.style.pointerEvents = "auto";
-
       copyPassword.classList.remove("copied");
+
+      const passwordScore = checkPasswordStrength(passwordString);
     }
   });
 }
 generatePassword();
+
+function checkPasswordStrength(passwordString) {
+  let score = 0;
+
+  if (/[~`!@#$%^&*()_+={[}\]|:;/\"'<,>.?/-]/g.test(passwordString)) {
+    score += 10;
+  }
+  if (/[0-9]/g.test(passwordString)) {
+    score += 10;
+  }
+
+  if (passwordString.length < 8) {
+    score = 0;
+  } else if (passwordString.length >= 8 && passwordString.length <= 12) {
+    score += 10;
+  } else if (passwordString.length > 12) {
+    score += 20;
+  }
+
+  return score;
+}
