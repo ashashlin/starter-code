@@ -1,5 +1,7 @@
 const charLengthSlider = document.querySelector(".js-char-length-slider");
 const charLengthNum = document.querySelector(".js-char-length-number");
+const passwordDisplay = document.querySelector(".js-password");
+const copyPassword = document.querySelector(".js-copy-password");
 
 charLengthSlider.addEventListener("input", () => {
   const charLength = charLengthSlider.value;
@@ -7,9 +9,6 @@ charLengthSlider.addEventListener("input", () => {
 });
 
 function passwordPlaceholderStyle() {
-  const passwordDisplay = document.querySelector(".js-password");
-  const copyPassword = document.querySelector(".js-copy-password");
-
   passwordDisplay.style.opacity = ".2";
   copyPassword.style.pointerEvents = "none";
 }
@@ -94,6 +93,15 @@ function replaceRandomChar(
   }
 }
 
+function copyToClipboard() {
+  copyPassword.addEventListener("click", async () => {
+    await navigator.clipboard.writeText(passwordDisplay.innerText);
+
+    copyPassword.classList.add("copied");
+  });
+}
+copyToClipboard();
+
 function generatePassword() {
   const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
@@ -140,7 +148,6 @@ function generatePassword() {
       }
 
       let passwordString = password.join("");
-      console.log(passwordString);
 
       const uppercaseLettersArray = uppercaseLetters.split("");
       const lowercaseLettersArray = lowercaseLetters.split("");
@@ -202,7 +209,12 @@ function generatePassword() {
       );
 
       passwordString = password.join("");
-      console.log(passwordString);
+
+      passwordDisplay.innerHTML = passwordString;
+      passwordDisplay.style.opacity = "1";
+      copyPassword.style.pointerEvents = "auto";
+
+      copyPassword.classList.remove("copied");
     }
   });
 }
