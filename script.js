@@ -2,6 +2,7 @@ const charLengthSlider = document.querySelector(".js-char-length-slider");
 const charLengthNum = document.querySelector(".js-char-length-number");
 const passwordDisplay = document.querySelector(".js-password");
 const copyPassword = document.querySelector(".js-copy-password");
+const passCheckboxes = document.querySelectorAll(".js-pass-checkbox");
 
 charLengthSlider.addEventListener("input", () => {
   const charLength = charLengthSlider.value;
@@ -93,6 +94,18 @@ function replaceRandomChar(
   }
 }
 
+function checkCheckedCheckboxesWithPassLength() {
+  let numberOfCheckedCheckboxes = 0;
+
+  passCheckboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      numberOfCheckedCheckboxes++;
+    }
+  });
+
+  return numberOfCheckedCheckboxes;
+}
+
 function copyToClipboard() {
   copyPassword.addEventListener("click", async () => {
     await navigator.clipboard.writeText(passwordDisplay.innerText);
@@ -110,7 +123,6 @@ function generatePassword() {
 
   generateBtn.addEventListener("click", () => {
     const charLength = Number(charLengthSlider.value);
-    const passCheckboxes = document.querySelectorAll(".js-pass-checkbox");
     let checked = false;
     const passwordSpecs = [];
     let charSet = "";
@@ -125,8 +137,20 @@ function generatePassword() {
     });
 
     if (charLength === 0 || !checked) {
+      alert(
+        "Please input a character length greater than 0 and check at least 1 checkbox."
+      );
       return;
     } else {
+      const numberOfCheckedCheckboxes = checkCheckedCheckboxesWithPassLength();
+
+      if (!(numberOfCheckedCheckboxes <= charLength)) {
+        alert(
+          "The number of checked critera has to be less than the length of the password. Please check again."
+        );
+        return;
+      }
+
       passwordSpecs.forEach((specs) => {
         if (specs === "uppercase") {
           charSet += uppercaseLetters;
