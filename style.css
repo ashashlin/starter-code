@@ -222,6 +222,7 @@ h1 {
   width: 100%;
   height: 0.5rem;
   background-color: var(--v-dark-grey);
+  cursor: pointer;
 }
 
 .char-length-slider::-webkit-slider-thumb {

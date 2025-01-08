@@ -240,6 +240,7 @@ function generatePassword() {
       copyPassword.classList.remove("copied");
 
       const passwordScore = checkPasswordStrength(passwordString);
+      stylePasswordStrength(passwordScore);
     }
   });
 }
@@ -264,4 +265,37 @@ function checkPasswordStrength(passwordString) {
   }
 
   return score;
+}
+
+function stylePasswordStrength(passwordScore) {
+  const passwordStrengthText = document.querySelector(".js-pass-strength-text");
+  const bars = document.querySelectorAll(".js-bar");
+  const firstBar = document.querySelector(".js-first-bar");
+  const secondBar = document.querySelector(".js-second-bar");
+  const thirdBar = document.querySelector(".js-third-bar");
+  const fourthBar = document.querySelector(".js-fourth-bar");
+
+  bars.forEach((bar) => {
+    bar.style.backgroundColor = "transparent";
+  });
+
+  if (passwordScore < 10) {
+    passwordStrengthText.innerText = "Too weak!";
+    firstBar.style.backgroundColor = "#F64A4A";
+  } else if (passwordScore < 20) {
+    passwordStrengthText.innerText = "Weak";
+    firstBar.style.backgroundColor = "#FB7C58";
+    secondBar.style.backgroundColor = "#FB7C58";
+  } else if (passwordScore < 40) {
+    passwordStrengthText.innerText = "Medium";
+    firstBar.style.backgroundColor = "#F8CD65";
+    secondBar.style.backgroundColor = "#F8CD65";
+    thirdBar.style.backgroundColor = "#F8CD65";
+  } else if (passwordScore >= 40) {
+    passwordStrengthText.innerText = "Strong";
+    firstBar.style.backgroundColor = "#A4FFAF";
+    secondBar.style.backgroundColor = "#A4FFAF";
+    thirdBar.style.backgroundColor = "#A4FFAF";
+    fourthBar.style.backgroundColor = "#A4FFAF";
+  }
 }
